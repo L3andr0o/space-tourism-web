@@ -50,7 +50,7 @@ const NavWrapper = styled.div`
 		padding: 15px;
 		right: 0;
 		top: 0;
-
+		z-index: 200;
 		.close{
 			position: absolute;
 			right: 15px;
