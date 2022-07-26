@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useState } from 'react';
+import { Link } from 'gatsby';
 
 const NavWrapper = styled.div`
 	width: 100%;
@@ -66,12 +67,14 @@ const NavWrapper = styled.div`
 			font-family: 'Barlow Condensed';
 			line-height: 55px;
 			li{
+				a{
 				color: #fff;
 				font-size: 16px;
 				letter-spacing: 3px;
 				span{
 					font-weight: 800;
 				}
+			}
 			}
 		}
 	}
@@ -97,10 +100,10 @@ export default function NavBar(){
 					<StaticImage src='../assets/shared/icon-close.svg' alt='icon-close' className='close-icon' quality={80} />
 				</div>
 				<ul>
-					<li><span>01</span> HOME</li>
-					<li><span>02</span> DESINATION</li>
-					<li><span>03</span> CREW</li>
-					<li><span>04</span> TECHNOLOGY</li>
+					<li><Link to='/'><span>01</span> HOME</Link></li>
+					<li><Link to='/destination'><span>02</span> DESINATION</Link></li>
+					<li><Link to='/crew'><span>03</span> CREW</Link></li>
+					<li><Link to='/technology'><span>04</span> TECHNOLOGY</Link></li>
 				</ul>
 			</div>
 		</NavWrapper>
