@@ -56,7 +56,7 @@ const Wrapper = styled.div<TitleProps>`
 				}
 			}
 		}
-		.bottom-rigth{
+		.bottom-right{
 			.selector{
 				width: 80%;
 				margin: 0 auto;
@@ -172,7 +172,7 @@ export default function Destination(){
 					</div>
 				</div>
 
-				<div className='bottom-rigth'>
+				<div className='bottom-right'>
 					<div className='selector'>
 						<span onClick={()=> setSelected(0)}>MOON</span>
 						<span onClick={()=> setSelected(1)}>MARS</span>
