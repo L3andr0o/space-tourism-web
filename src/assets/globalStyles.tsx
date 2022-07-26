@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         text-decoration: none;
+        list-style: none;
     }
     body{
         height: 100vh;
