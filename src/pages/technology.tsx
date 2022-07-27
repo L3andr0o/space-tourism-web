@@ -36,6 +36,9 @@ const Wrapper = styled.div<TitleProps>`
     @media (min-width: 475px){
       margin-top: 20px;
     }
+    @media (min-width: 768px) {
+      padding-left: 8%;
+    }
 		.top-left{
 			position: relative;
 			h1{
@@ -50,6 +53,10 @@ const Wrapper = styled.div<TitleProps>`
           margin: 0;
           margin-left: 15px;
         }
+        @media (min-width: 768px) {
+          font-size: 22px;
+          margin: 0;
+        }
 				span{
 					color: #888;
 					font-weight: 600;
@@ -57,10 +64,19 @@ const Wrapper = styled.div<TitleProps>`
 			}
 			.tech{
 				margin-top: 20px;
+        @media (min-width: 768px) {
+          position: absolute;
+          right: 0;
+          margin: 0;
+        }
 				.tech-img{
 					height: 12em;
           @media (min-width: 475px){
             height: 15em;
+          }
+          @media (min-width: 768px) {
+          height: 100%;
+          
           }
 				}
 			}
@@ -71,6 +87,15 @@ const Wrapper = styled.div<TitleProps>`
 			width: 90%;
 			max-width: 340px;
       text-align: center;
+      @media (min-width: 768px) {
+        margin: 0;
+        width: fit-content;
+        max-width: 50%;
+        text-align: left;
+        display: flex;
+        height: 15em;
+        margin-top: 100px;
+      }
 			.selector{
 				width: 60%;
 				max-width: 10em;
@@ -78,6 +103,11 @@ const Wrapper = styled.div<TitleProps>`
 				justify-content: space-between;
 				margin: 0 auto;
 				user-select: none;
+        @media (min-width: 768px) {
+          flex-direction: column;
+          margin: 0;
+          max-width: fit-content;
+        }
 				span{
 					width: 40px;
 					height: 40px;
@@ -87,6 +117,16 @@ const Wrapper = styled.div<TitleProps>`
 					display: flex;
 					align-items: center;
 					justify-content: center;
+          transition: all .3s ease-in-out;
+          cursor: pointer;
+          &:hover{
+            background-color: #fff;
+            color: #000;
+          }
+          @media (min-width: 768px) {
+            width: 60px;
+            height: 60px;
+          }
 				}
 				span:nth-child(${({selected})=> selected + 1}){
 					background-color: #fff;
@@ -96,12 +136,21 @@ const Wrapper = styled.div<TitleProps>`
 			}
 			.tech-info{
 				margin-top: 20px;
+        @media (min-width: 768px) {
+          margin: 0;
+          max-width: 475px;
+          margin-left: 40px;
+          margin-top: 20px;
+        }
 				span{
 					font-size: 16px;
 					font-family: 'Barlow Condensed';
 					font-weight: 200;
 					color: #d0d6f9;
           text-transform: uppercase;
+          @media (min-width: 768px) {
+            font-size: 18px;
+          }
 				}
 				h1{
 					font-size: 25px;
@@ -110,6 +159,9 @@ const Wrapper = styled.div<TitleProps>`
 					color: #fff;
 					margin-top: 10px;
           text-transform: uppercase;
+          @media (min-width: 768px) {
+            font-size: 50px;
+          }
 				}
 				p{
 					font-size: 16px;
@@ -120,6 +172,9 @@ const Wrapper = styled.div<TitleProps>`
 					margin-top: 20px;
           @media (min-width: 475px) {
             margin-top: 10px;
+          }
+          @media (min-width: 768px) {
+            font-size: 18px;
           }
 				}
 			}
@@ -145,7 +200,7 @@ export default function Technology(){
 			{
       (Width >= 768)
       ? 
-      <StaticImage src='https://wallpaperaccess.com/full/3257596.jpg' alt='bg' quality={80} className='bg-img' />
+      <StaticImage src='https://images4.alphacoders.com/689/689588.jpg' alt='bg' quality={80} className='bg-img' />
       :
       <StaticImage src='https://wallpapercave.com/wp/wp5277153.jpg' alt='bg' quality={80} className='bg-img' />
     }

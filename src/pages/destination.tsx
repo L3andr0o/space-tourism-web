@@ -39,8 +39,22 @@ const Wrapper = styled.div<TitleProps>`
     @media (min-width:475px) {
 			max-width: 85%;
       margin-top: 20px;
+      justify-content: space-between;
 		}
+    @media (min-width: 768px){
+      display: flex;
+      position: relative;
+      max-width: 70em;
+    }
 		.top-left{
+      @media (min-width: 768px) {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 65vh;
+        position: relative;
+      }
 			h1{
 				font-size: 16px;
 				font-weight: 200;
@@ -52,6 +66,9 @@ const Wrapper = styled.div<TitleProps>`
         @media (min-width:475px) {
         margin: 0;
 		  }
+      @media (min-width: 768px) {
+        font-size: 22px;
+      }
 				span{
 					color: #888;
 					font-weight: 600;
@@ -60,12 +77,26 @@ const Wrapper = styled.div<TitleProps>`
 			.planet{
 				margin: 25px auto;
         width: fit-content;
+        height: fit-content;
+        user-select: none;
+        @media (min-width: 768px) {
+          margin: 0 auto;
+          height: 22em;
+          width: 95%;
+          max-width: 22em;
+        }
+
 				.planet-img{
 					height: 10em;
 					width: 10em;
           @media (min-width: 475px){
             height: 12.5em;
             width: 12.5em;
+          }
+          @media (min-width: 768px) {
+            height: 22em;
+            width: 100%;
+            max-width: 22em;
           }
 				}
 			}
@@ -74,12 +105,22 @@ const Wrapper = styled.div<TitleProps>`
       text-align: center;
       margin: 0 auto;
       max-width: 425px;
+      @media (min-width: 768px) {
+        width: 50%;
+        max-width: 50%;
+        margin-top: 10%;
+        height: fit-content;
+        text-align: left;
+      }
 			.selector{
 				width: 80%;
 				margin: 0 auto;
 				display: flex;
 				justify-content: space-between;
         max-width: 220px;
+        @media (min-width: 768px) {
+          margin: 0;
+        }
 				span{
 					color: #d0d6f9;
 					font-family: 'Barlow Condensed';
@@ -87,6 +128,28 @@ const Wrapper = styled.div<TitleProps>`
 					position: relative;
 					font-size: 14px;
 					user-select: none;
+          cursor: pointer;
+
+          &:hover{
+            &::after{
+						content: ' ';
+						width: 100%;
+						height: 1px;
+						background-color: #fff;
+						display: block;
+						margin-top: 5px;
+            animation: opt-hover .3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal both;
+					}
+          @keyframes opt-hover {
+            0%{transform: scaleX(0);}
+            100%{transform: scaleX(1);}
+          }
+          }
+
+
+          @media (min-width: 768px) {
+          font-size: 18px;
+        }
 				}
 				span:nth-child(${({selected})=>selected + 1}){
 					color: #fff;
@@ -105,10 +168,14 @@ const Wrapper = styled.div<TitleProps>`
 				margin-top: 10px;
 				min-height: 188px;
 				position: relative;
-        /* background-color: #a2f; */
         @media (min-width: 475px){
           min-height: 150px;
         }
+        @media (min-width: 768px) {
+          min-height:15em;
+          margin-top: 20px;
+        }
+
 				&::after{
 					content: ' ';
 					width: 100%;
@@ -117,6 +184,9 @@ const Wrapper = styled.div<TitleProps>`
 					display: block;
 					position: absolute;
 					bottom: 0;
+          @media (min-width: 768px) {
+            width: 375px;
+          }
 				}
 
 				h1{
@@ -125,13 +195,15 @@ const Wrapper = styled.div<TitleProps>`
 					color: #fff;
 					font-family: 'Bellefair';
 					text-transform: uppercase;
+          @media (min-width: 768px) {font-size: 80px;}
 				}
 				p{
 					color: #d0d6f9;
 					font-family: 'Barlow Condensed';
 					font-weight: 200;
 					line-height: 22px;
-          
+          max-width: 375px;
+          @media (min-width: 768px) {font-size: 18px;}
 				}
 			}
 			.travel-info{
@@ -145,6 +217,10 @@ const Wrapper = styled.div<TitleProps>`
           flex-direction: row;
           width: 18em;
         }
+        @media (min-width: 768px) {
+          margin: 0;
+          margin-top: 20px;
+        }
 				div{
 					h3{
 					font-family: 'Barlow Condensed';
@@ -152,6 +228,7 @@ const Wrapper = styled.div<TitleProps>`
 					font-weight: 200;
 					font-size: 14px;
 					letter-spacing: 2px;
+          @media (min-width: 768px) {font-size: 16px;}
 				}
 				span{
 					font-family: 'Bellefair';
@@ -159,6 +236,7 @@ const Wrapper = styled.div<TitleProps>`
 					color: #fff;
 					font-weight: 200;
 					text-transform: uppercase;
+          @media (min-width: 768px) {font-size: 25px;}
 				}
 				}
 			}
@@ -186,7 +264,7 @@ export default function Destination(){
 			{
       (Width >= 768)
       ? 
-      <StaticImage src='https://i.pinimg.com/originals/6e/45/50/6e455092c18189888006b8380c2b29a6.jpg' alt='bg' quality={80} className='bg-img' />
+      <StaticImage src='https://www.99images.com/download-image/494642/1920x1080' alt='bg' quality={80} className='bg-img' />
       :
       <StaticImage src='https://myandroidwalls.com/wp-content/uploads/2022/01/Universe-Phone-Wallpaper-4k.jpg' alt='bg' quality={80} className='bg-img' />
     }

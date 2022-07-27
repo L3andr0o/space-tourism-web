@@ -6,6 +6,7 @@ import { GlobalStyles } from '../assets/globalStyles';
 import { useWidth } from '../hooks/useWidth';
 import NavBar from '../components/navBar';
 import Head from '../components/head';
+import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,10 +33,19 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     max-width: 340px;
-    @media (min-width:475px) {
+    @media ((min-width:475px) and (max-width: 768px)) {
 			margin: 40px auto;
 		}
+    @media (min-width:768px) {
+      flex-direction: row;
+      max-width: 85%;
+      align-items: flex-end;
+    }
     .content-text{
+      @media (min-width: 768px) {
+        width: 20em;
+        text-align: left;
+      }
       h2,p{
         font-family: 'Barlow Condensed';
         color: #d0d6f9;
@@ -44,6 +54,9 @@ const Wrapper = styled.div`
       h2{
         font-size: 15px;
         letter-spacing: 3px;
+        @media (min-width: 768px) {
+          font-size: 22px;
+        }
       }
       h1{
         font-size: 55px;
@@ -53,11 +66,16 @@ const Wrapper = styled.div`
         margin: 20px 0;
         @media (min-width:475px) {
         font-size: 100px;
-		  }
+		  }@media (min-width: 768px) {
+          font-size: 122px;
+        }
       }
       p{
         line-height: 25px;
         letter-spacing: 1px;
+        @media (min-width: 768px) {
+          font-size: 18px;
+        }
       }
     }
 
@@ -70,9 +88,37 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: center;
       margin: 0 auto;
+      color: #000;
+      @media (min-width: 768px) {
+        margin: 0;
+        height: 20em;
+        width: 20em;
+        position: relative;
+        &:hover{
+          &:after{
+            width: 130%;
+            height: 130%;
+            display: block;
+            content: ' ';
+            position: absolute;
+            background-color: #dfcdcd2d;
+            border-radius: 50%;
+            z-index: -200;
+            animation: hover .4s cubic-bezier(0.215, 0.610, 0.355, 1) 0s 1 normal both;
+          }
+          @keyframes hover {
+            0%{
+              transform: scale(.7);
+            }100%{transform: scale(1);}
+          }
+        }
+      }
       span{
         font-size: 22px;
         font-family: 'Bellefair';
+        @media (min-width: 768px) {
+          font-size: 50px;
+        }
       }
     }
   }
@@ -107,9 +153,9 @@ const IndexPage = () => {
           <h1>SPACE</h1>
           <p>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
-        <div className='explore'>
+        <Link to='/destination' className='explore'>
           <span>EXPLORE</span>
-        </div>
+        </Link>
       </div>
 
     </Wrapper>

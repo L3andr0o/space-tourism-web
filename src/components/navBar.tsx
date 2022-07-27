@@ -15,8 +15,11 @@ const NavWrapper = styled.div`
 		padding: 0;
 		padding-left: 15px;
 	}
+  @media (min-width:768px){
+    margin-top: 30px;
+  }
 
-	.logo{
+	.logo{ 
 		.logo-icon{
 			width: 2.5em;
 			height: 2.5em;
@@ -66,8 +69,13 @@ const NavWrapper = styled.div`
 			position: relative;
 			height: 100%;
 			padding: 0;
-			max-width: 455px;
+			max-width: 50em;
 		}
+    @media (min-width: 768px){
+      padding-left: 30px;
+      position: relative;
+    }
+    
 		.close{
 			position: absolute;
 			right: 15px;
@@ -91,20 +99,30 @@ const NavWrapper = styled.div`
 			padding: 0 10px;
 			height: 100%;
 			width: 100%;
-      max-width: 395px;
+      max-width: 35em;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			}
+      @media (min-width:768px){
+        &::before{
+        min-width: 30%;
+        max-width: 20em;
+        height: 1px;
+        background-color: #777;
+        display: block;
+        position: absolute;
+        left: -29%;
+        content: ' ';
+        z-index: 300;
+      }
+      }
 			li{
 			@media (min-width:475px) {
 			display: inline;
       height: 100%;
-      display: flex;
-      align-items: center;
-      position: relative;
 			}
-				.link-active{
+			.link-active{
 				@media (min-width:475px) {
 					&::after{
             content: ' ';
@@ -115,18 +133,45 @@ const NavWrapper = styled.div`
             height: 1px;
             background-color: #fff;
           }
-				}
-				}
+        }
+      }
 				a{
 				color: #fff;
 				font-size: 16px;
-				letter-spacing: 3px;
+        letter-spacing: 3px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+      &:hover{
+        &::after{
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: 1px;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            animation: link-hover .4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 normal forwards;
+          }
+          @keyframes link-hover {
+            0%{transform:scaleX(0);}
+            100%{transform:scaleX(1);}
+          }
+      }
+
+
 				span{
 					font-weight: 800;
 					@media (min-width:475px) {
-					display: none;}
-				}
-			}
+					display: none;
+          margin-right: 5px;
+        }
+        @media (min-width:768px) {
+          display: inline;
+        }}
+      }
 			}
 		}
 	}

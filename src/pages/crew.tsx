@@ -36,11 +36,18 @@ const Wrapper = styled.div<TitleProps>`
     height: 75vh;
     max-width: 340px;
     position: relative;
+    
     @media (min-width:475px) {
 			max-width: 85%;
       margin-top: 20px;
       height: 85.5vh;
 		}
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 82.9vh;
+    }
 		.top-left{
 			position: relative;
       @media (min-width: 475px){
@@ -68,7 +75,10 @@ const Wrapper = styled.div<TitleProps>`
         margin: 0 auto;
         @media (min-width:475px) {
           margin: 0;
-		  }
+		    }
+        @media (min-width: 768px) {
+          font-size: 22px;
+        }
 				span{
 					color: #888;
 					font-weight: 600;
@@ -86,6 +96,9 @@ const Wrapper = styled.div<TitleProps>`
           bottom: 0;
           left: calc(50% - 7em);
         }
+        @media (min-width: 768px) {
+          left: calc(80% - 15em);
+        }
 				.crew-member-img{
 					width: 10em;
 					height: auto;
@@ -93,6 +106,12 @@ const Wrapper = styled.div<TitleProps>`
             width: 14em;
             height: 305px;
           }
+          @media (min-width: 768px) {
+          max-height: 35em;
+          height: auto;
+          width: 28em;
+          z-index: -200;
+        }
 				}
 			}
 		}
@@ -104,6 +123,11 @@ const Wrapper = styled.div<TitleProps>`
         flex-direction: column;
         justify-content: space-around;
       }
+      @media (min-width: 768px) {
+        width: 50%;
+        text-align: left;
+        height: 60%;
+      }
 			.selector{
 				width: 40%;
 				max-width: 6em;
@@ -114,11 +138,23 @@ const Wrapper = styled.div<TitleProps>`
         @media (min-width:475px) {
           order: 2; 
         }
+        @media (min-width: 768px) {
+          margin: 0;
+        }
 				div{
 					width: 10px;
 					height: 10px;
 					border-radius: 50%;
 					background-color: #616e7e;
+          transition: background-color .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          cursor: pointer;
+          &:hover{
+            background-color: #a3a9acf1;
+          }
+          @media (min-width: 768px) {
+          height: 15px;
+          width: 15px;
+        }
 				}
 				div:nth-child(${({selected})=> selected + 1}){
 					background-color: #fff;
@@ -131,12 +167,19 @@ const Wrapper = styled.div<TitleProps>`
         @media (min-width: 475px) {
           margin-top: 0;
         }
+        @media (min-width: 768px) {
+          margin: 0;
+          text-align: left;
+        }
 				span{
 					font-size: 16px;
 					font-family: 'Bellefair';
 					font-weight: 200;
 					color: #868585;
           text-transform: uppercase;
+          @media (min-width: 768px) {
+          font-size: 28px;
+        }
 				}
 				h1{
 					font-size: 25px;
@@ -148,6 +191,9 @@ const Wrapper = styled.div<TitleProps>`
           @media (min-width: 475px){
             font-size: 40px;
           }
+          @media (min-width: 768px) {
+          font-size: 50px;
+        }
 				}
 				p{
 					font-size: 16px;
@@ -163,6 +209,10 @@ const Wrapper = styled.div<TitleProps>`
             max-width: 345px;
             margin-top: 10px;
           }
+          @media (min-width: 768px) {
+          margin: 0;
+          font-size: 18px;
+        }
 				}
 			}
 		}
