@@ -33,12 +33,19 @@ const Wrapper = styled.div<TitleProps>`
 	.content{
 		margin: 0 auto;
     width: 85%;
-    text-align: center;
     height: 75vh;
     max-width: 340px;
-
+    position: relative;
+    @media (min-width:475px) {
+			max-width: 85%;
+      margin-top: 20px;
+      height: 85.5vh;
+		}
 		.top-left{
 			position: relative;
+      @media (min-width: 475px){
+        position: static;
+      }
 			&::after{
 				content: ' ';
 				width: 100%;
@@ -47,6 +54,9 @@ const Wrapper = styled.div<TitleProps>`
 				display: block;
 				position: absolute;
 				bottom: 0;
+        @media (min-width:475px) {
+          display: none;
+		 }
 			}
 			h1{
 				font-size: 16px;
@@ -54,33 +64,56 @@ const Wrapper = styled.div<TitleProps>`
 				color: #fff;
 				font-family: 'Barlow Condensed';
 				letter-spacing: 2px;
+        width: fit-content;
+        margin: 0 auto;
+        @media (min-width:475px) {
+          margin: 0;
+		  }
 				span{
 					color: #888;
 					font-weight: 600;
 				}
 			}
 			.crew-member{
+        margin: 0 auto;
 				margin-top: 20px;
 				min-height: 237px;
 				position: relative;
+        display: flex;
+        width: fit-content;
+        @media (min-width:475px){
+          position: absolute;
+          bottom: 0;
+          left: calc(50% - 7em);
+        }
 				.crew-member-img{
 					width: 10em;
 					height: auto;
-					position: absolute;
-					bottom: 0;
-					left: calc(75% - 160px);
+          @media (min-width:475px){
+            width: 14em;
+            height: 305px;
+          }
 				}
 			}
 		}
 		.bottom-right{
 			margin-top: 20px;
+      @media (min-width: 475px) {
+        display: flex;
+        min-height: 227px;
+        flex-direction: column;
+        justify-content: space-around;
+      }
 			.selector{
 				width: 40%;
-				max-width: 10em;
+				max-width: 6em;
 				display: flex;
 				justify-content: space-between;
 				margin: 0 auto;
 				user-select: none;
+        @media (min-width:475px) {
+          order: 2; 
+        }
 				div{
 					width: 10px;
 					height: 10px;
@@ -92,7 +125,12 @@ const Wrapper = styled.div<TitleProps>`
 				}
 			}
 			.crew-info{
+        margin: 0 auto;
 				margin-top: 40px;
+        text-align: center;
+        @media (min-width: 475px) {
+          margin-top: 0;
+        }
 				span{
 					font-size: 16px;
 					font-family: 'Bellefair';
@@ -107,6 +145,9 @@ const Wrapper = styled.div<TitleProps>`
 					color: #fff;
 					margin-top: 10px;
           text-transform: uppercase;
+          @media (min-width: 475px){
+            font-size: 40px;
+          }
 				}
 				p{
 					font-size: 16px;
@@ -114,7 +155,14 @@ const Wrapper = styled.div<TitleProps>`
 					font-weight: 200;
 					color: #d0d6f9;
 					line-height: 25px;
+          margin: 0 auto;
 					margin-top: 20px;
+          
+          @media (min-width: 475px) {
+            min-height: 100px;
+            max-width: 345px;
+            margin-top: 10px;
+          }
 				}
 			}
 		}
@@ -128,8 +176,8 @@ export default function Crew(){
   useEffect(()=>{
     resize()
   },[isBrowser()]);
-	const [selected, setSelected] = useState<number>(0)
-	const crewMember : crew[] = data.crew;
+	const [selected, setSelected] = useState<number>(0);
+	const crewMembers : crew[] = data.crew;
 
   return(
 		<Wrapper selected={selected}>
@@ -161,9 +209,9 @@ export default function Crew(){
 					<div onClick={()=> setSelected(3)}></div>
 				</div>
 				<div className="crew-info">
-					<span>{crewMember[selected].role}</span>
-					<h1>{crewMember[selected].name}</h1>
-					<p>{crewMember[selected].bio}</p>
+					<span>{crewMembers[selected].role}</span>
+					<h1>{crewMembers[selected].name}</h1>
+					<p>{crewMembers[selected].bio}</p>
 				</div>
 			</div>
 		</div>

@@ -11,6 +11,10 @@ const NavWrapper = styled.div`
 	align-items: center;
 	padding: 0 15px;
 	justify-content: space-between;
+	@media (min-width:475px) {
+		padding: 0;
+		padding-left: 15px;
+	}
 
 	.logo{
 		.logo-icon{
@@ -20,6 +24,9 @@ const NavWrapper = styled.div`
 	}
 
 	.open{
+		@media (min-width:475px) {
+			display: none;
+		}
 		.open-icon{
 			width: 1.8em;
 			height: 1.8em;
@@ -28,6 +35,9 @@ const NavWrapper = styled.div`
 
 	.hidden{
 		display: none !important;
+		@media (min-width: 475px) {
+			display: block !important;
+		}
 	}
 	.visible{
 		animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 normal forwards;
@@ -52,10 +62,19 @@ const NavWrapper = styled.div`
 		right: 0;
 		top: 0;
 		z-index: 200;
+		@media (min-width:475px) {
+			position: relative;
+			height: 100%;
+			padding: 0;
+			max-width: 455px;
+		}
 		.close{
 			position: absolute;
 			right: 15px;
 			top: 25px;
+			@media (min-width:475px) {
+			display: none;
+			}	
 			.close-icon{
 				width: 1.5em;
 				height: 1.5em;
@@ -66,13 +85,46 @@ const NavWrapper = styled.div`
 			margin-top: 80px;
 			font-family: 'Barlow Condensed';
 			line-height: 55px;
+			@media (min-width:475px) {
+			margin: 0;
+			line-height: normal;
+			padding: 0 10px;
+			height: 100%;
+			width: 100%;
+      max-width: 395px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			}
 			li{
+			@media (min-width:475px) {
+			display: inline;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+			}
+				.link-active{
+				@media (min-width:475px) {
+					&::after{
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: 1px;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+          }
+				}
+				}
 				a{
 				color: #fff;
 				font-size: 16px;
 				letter-spacing: 3px;
 				span{
 					font-weight: 800;
+					@media (min-width:475px) {
+					display: none;}
 				}
 			}
 			}
@@ -100,10 +152,10 @@ export default function NavBar(){
 					<StaticImage src='../assets/shared/icon-close.svg' alt='icon-close' className='close-icon' quality={80} />
 				</div>
 				<ul>
-					<li><Link to='/'><span>01</span> HOME</Link></li>
-					<li><Link to='/destination'><span>02</span> DESINATION</Link></li>
-					<li><Link to='/crew'><span>03</span> CREW</Link></li>
-					<li><Link to='/technology'><span>04</span> TECHNOLOGY</Link></li>
+					<li><Link to='/' activeClassName='link-active'><span>01</span> HOME</Link></li>
+					<li><Link to='/destination' activeClassName='link-active'><span>02</span> DESINATION</Link></li>
+					<li><Link to='/crew' activeClassName='link-active'><span>03</span> CREW</Link></li>
+					<li><Link to='/technology' activeClassName='link-active'><span>04</span> TECHNOLOGY</Link></li>
 				</ul>
 			</div>
 		</NavWrapper>

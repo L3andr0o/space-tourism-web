@@ -33,16 +33,25 @@ const Wrapper = styled.div<TitleProps>`
 	.content{
 		margin: 0 auto;
     width: 85%;
-    text-align: center;
-    height: 75vh;
+    min-height: 75vh;
+    height: fit-content;
     max-width: 340px;
+    @media (min-width:475px) {
+			max-width: 85%;
+      margin-top: 20px;
+		}
 		.top-left{
 			h1{
 				font-size: 16px;
 				font-weight: 200;
 				color: #fff;
+        margin: 0 auto;
+        width: fit-content;
 				font-family: 'Barlow Condensed';
 				letter-spacing: 2px;
+        @media (min-width:475px) {
+        margin: 0;
+		  }
 				span{
 					color: #888;
 					font-weight: 600;
@@ -50,18 +59,27 @@ const Wrapper = styled.div<TitleProps>`
 			}
 			.planet{
 				margin: 25px auto;
+        width: fit-content;
 				.planet-img{
 					height: 10em;
 					width: 10em;
+          @media (min-width: 475px){
+            height: 12.5em;
+            width: 12.5em;
+          }
 				}
 			}
 		}
 		.bottom-right{
+      text-align: center;
+      margin: 0 auto;
+      max-width: 425px;
 			.selector{
 				width: 80%;
 				margin: 0 auto;
 				display: flex;
 				justify-content: space-between;
+        max-width: 220px;
 				span{
 					color: #d0d6f9;
 					font-family: 'Barlow Condensed';
@@ -87,6 +105,10 @@ const Wrapper = styled.div<TitleProps>`
 				margin-top: 10px;
 				min-height: 188px;
 				position: relative;
+        /* background-color: #a2f; */
+        @media (min-width: 475px){
+          min-height: 150px;
+        }
 				&::after{
 					content: ' ';
 					width: 100%;
@@ -109,6 +131,7 @@ const Wrapper = styled.div<TitleProps>`
 					font-family: 'Barlow Condensed';
 					font-weight: 200;
 					line-height: 22px;
+          
 				}
 			}
 			.travel-info{
@@ -116,7 +139,12 @@ const Wrapper = styled.div<TitleProps>`
 				flex-direction: column;
 				justify-content: space-between;
 				height: 6.5em;
+        margin: 0 auto;
 				margin-top: 15px;
+        @media (min-width: 475px){
+          flex-direction: row;
+          width: 18em;
+        }
 				div{
 					h3{
 					font-family: 'Barlow Condensed';
@@ -146,7 +174,7 @@ export default function Destination(){
   },[isBrowser()])
 
 	const [selected, setSelected] = useState<number>(0);
-	const destination : destination[] = data.destinations;
+	const destinations : destination[] = data.destinations;
 
 
   return(
@@ -180,17 +208,17 @@ export default function Destination(){
 						<span onClick={()=> setSelected(3)}>TITAN</span>
 					</div>
 					<div className='planet-info'>
-						<h1>{destination[selected].name}</h1>
-						<p>{destination[selected].description}</p>
+						<h1>{destinations[selected].name}</h1>
+						<p>{destinations[selected].description}</p>
 					</div>
 					<div className='travel-info'>
 						<div className='distance'>
 							<h3>AVG. DISTANCE</h3>
-							<span>{destination[selected].distance}</span>
+							<span>{destinations[selected].distance}</span>
 						</div>
 						<div className='time'>
 							<h3>EST. TRAVEL TIME</h3>
-							<span>{destination[selected].travel}</span>
+							<span>{destinations[selected].travel}</span>
 						</div>
 					</div>
 				</div>

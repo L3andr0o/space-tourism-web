@@ -32,6 +32,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     max-width: 340px;
+    @media (min-width:475px) {
+			margin: 40px auto;
+		}
     .content-text{
       h2,p{
         font-family: 'Barlow Condensed';
@@ -48,6 +51,9 @@ const Wrapper = styled.div`
         font-family: 'Bellefair';
         font-weight: 200;
         margin: 20px 0;
+        @media (min-width:475px) {
+        font-size: 100px;
+		  }
       }
       p{
         line-height: 25px;

@@ -32,9 +32,10 @@ const Wrapper = styled.div<TitleProps>`
 	.content{
 		margin: 0 auto;
     width: 100%;
-    text-align: center;
     height: 75vh;
-    /* max-width: 340px; */
+    @media (min-width: 475px){
+      margin-top: 20px;
+    }
 		.top-left{
 			position: relative;
 			h1{
@@ -43,6 +44,12 @@ const Wrapper = styled.div<TitleProps>`
 				color: #fff;
 				font-family: 'Barlow Condensed';
 				letter-spacing: 2px;
+        margin: 0 auto;
+        width: fit-content;
+        @media (min-width: 475px) {
+          margin: 0;
+          margin-left: 15px;
+        }
 				span{
 					color: #888;
 					font-weight: 600;
@@ -50,9 +57,11 @@ const Wrapper = styled.div<TitleProps>`
 			}
 			.tech{
 				margin-top: 20px;
-				
 				.tech-img{
-					height: 10em;
+					height: 12em;
+          @media (min-width: 475px){
+            height: 15em;
+          }
 				}
 			}
 		}
@@ -61,6 +70,7 @@ const Wrapper = styled.div<TitleProps>`
 			margin-top: 20px;
 			width: 90%;
 			max-width: 340px;
+      text-align: center;
 			.selector{
 				width: 60%;
 				max-width: 10em;
@@ -108,6 +118,9 @@ const Wrapper = styled.div<TitleProps>`
 					color: #d0d6f9;
 					line-height: 25px;
 					margin-top: 20px;
+          @media (min-width: 475px) {
+            margin-top: 10px;
+          }
 				}
 			}
 		}
@@ -121,7 +134,7 @@ export default function Technology(){
     resize()
   },[isBrowser()]);
 	const [selected, setSelected] = useState<number>(0);
-	const technology : technology[] = data.technology;
+	const technologies : technology[] = data.technology;
 
 
 	return(
@@ -134,7 +147,7 @@ export default function Technology(){
       ? 
       <StaticImage src='https://wallpaperaccess.com/full/3257596.jpg' alt='bg' quality={80} className='bg-img' />
       :
-      <StaticImage src='https://i.pinimg.com/736x/a6/1a/e2/a61ae2edc53b03eaacafc86b3029583d.jpg' alt='bg' quality={80} className='bg-img' />
+      <StaticImage src='https://wallpapercave.com/wp/wp5277153.jpg' alt='bg' quality={80} className='bg-img' />
     }
 		<div className="content">
 			<div className="top-left">
@@ -151,8 +164,8 @@ export default function Technology(){
 				</div>
 				<div className="tech-info">
 					<span>THE TERMINOLOGY...</span>
-					<h1>{technology[selected].name}</h1>
-					<p>{technology[selected].description}</p>
+					<h1>{technologies[selected].name}</h1>
+					<p>{technologies[selected].description}</p>
 				</div>
 			</div>
 		</div>
