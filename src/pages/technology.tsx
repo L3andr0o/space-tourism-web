@@ -144,7 +144,7 @@ const Wrapper = styled.div<TitleProps>`
 
 
 
-	tech-info{
+	.tech-info{
 	margin-top: 20px;
     @media (min-width: 768px) {
     margin: 0;
