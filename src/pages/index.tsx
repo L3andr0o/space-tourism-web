@@ -142,7 +142,8 @@ const IndexPage = () => {
     {
       (Width >= 768)
       ? 
-      <StaticImage src='https://i.pinimg.com/originals/65/06/49/650649777002195cac8b2c1845c86872.jpg' alt='bg' quality={80} className='bg-img' />
+      // <StaticImage src='https://i.pinimg.com/originals/65/06/49/650649777002195cac8b2c1845c86872.jpg' alt='bg' quality={80} className='bg-img' />
+      <StaticImage src='https://fondosmil.com/fondo/8537.jpg' alt='bg' quality={80} className='bg-img' />
       :
       <StaticImage src='https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb' alt='bg' quality={80} className='bg-img' />
     }
