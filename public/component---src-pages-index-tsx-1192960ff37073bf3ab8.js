@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkspace_tourism_web=self.webpackChunkspace_tourism_web||[]).push([[691],{7200:function(e,i,n){n.r(i);var a=n(7294),t=n(1074).default.div.withConfig({displayName:"pages__Wrapper",componentId:"sc-a6p2cg-0"})(["width:100%;height:100%;min-height:100vh;position:relative;"]);i.default=function(){return a.createElement(t,null,"undefined"!=typeof window?window.innerWidth:"falla pana rafa")}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-1192960ff37073bf3ab8.js.map

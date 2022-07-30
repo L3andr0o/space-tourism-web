@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkspace_tourism_web=self.webpackChunkspace_tourism_web||[]).push([[691],{7200:function(e,t,i){i.r(t);var n=i(7294),a=i(1074).default.div.withConfig({displayName:"pages__Wrapper",componentId:"sc-a6p2cg-0"})(["width:100%;height:100%;min-height:100vh;position:relative;"]);t.default=function(){return n.createElement(a,null,function(){return"undefined"!=typeof window}?"adiu":"holaa")}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-5df1f95b2576c92d2e93.js.map
