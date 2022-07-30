@@ -144,8 +144,9 @@ const NavWrapper = styled.div`
         display: flex;
         align-items: center;
         position: relative;
-      &:hover{
-        &::after{
+				@media (min-width: 475px) {
+					&:hover{
+        	&::after{
             content: ' ';
             display: block;
             position: absolute;
@@ -160,13 +161,14 @@ const NavWrapper = styled.div`
             100%{transform:scaleX(1);}
           }
       }
+				}
 
 
 				span{
 					font-weight: 800;
+          margin-right: 5px;
 					@media (min-width:475px) {
 					display: none;
-          margin-right: 5px;
         }
         @media (min-width:768px) {
           display: inline;
